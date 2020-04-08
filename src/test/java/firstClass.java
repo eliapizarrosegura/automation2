@@ -16,7 +16,7 @@ public class firstClass {
        //Access to URL
        String url="https://www.google.es/?gws_rd=ssl";
        driver.get(url);
-
+//nueva rama
        //Look in Search bar
         By searchBar = By.className("gLFyf");
         String link="http://automationpractice.com/";
