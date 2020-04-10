@@ -7,17 +7,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class firstClass {
 
-    public static void main(String[] args){
+public class accessToAutomate {
+
+
+    public static void main(String[] args) throws Exception {
+
        FirefoxDriver driver;
        System.setProperty("webdriver.gecko.driver","C://Users/EPI04/Documents/geckodriver.exe");
        driver = new FirefoxDriver();
-       //Access to URL
-       String url="https://www.google.es/?gws_rd=ssl";
-       driver.get(url);
 
-       //Look in Search bar
+        //Access to URL
+        String url="https://www.google.es/?gws_rd=ssl";
+        driver.get(url);
+
+        //Look in Search bar
         By searchBar = By.className("gLFyf");
         String link="http://automationpractice.com/";
         driver.findElement(searchBar).sendKeys(link);
@@ -32,11 +36,16 @@ public class firstClass {
         System.out.println(firstResults.getText());
         firstResults.click();
 
-        //maximize the window
-        driver.manage().window().maximize();
+        //get current URL.
+        String currentURL=driver.getCurrentUrl();
 
+        //Send url to create a new account
+       NewAccount.newAc(currentURL);
 
-
+       //close the current windows
+       driver.close();
 
     }
+
+
 }
